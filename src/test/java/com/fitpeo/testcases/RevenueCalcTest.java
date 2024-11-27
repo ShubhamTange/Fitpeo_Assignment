@@ -1,24 +1,19 @@
 package com.fitpeo.testcases;
 
 import org.testng.annotations.Test;
-import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeClass;
 import org.testng.AssertJUnit;
 import static org.testng.Assert.assertTrue;
-
 import java.io.IOException;
-
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
-import org.testng.annotations.Test;
-
 import com.fitpeo.base.TestBase;
 import com.fitpeo.page.RevenueCalcPage;
 
 public class RevenueCalcTest extends TestBase {
 	RevenueCalcPage rn;
 
+	//this is the init method to launch browser
 	@BeforeClass
 	public void inti() throws IOException {
 		launchBrowser();
@@ -27,27 +22,28 @@ public class RevenueCalcTest extends TestBase {
 
 	}
 
-	// Navigate to Fitpeo Home Page
-	@Test(priority = 1) // Validating you revenue calculator page is displayed.
+	// Navigate to Fitpeo Home Page and validating home page.
+	@Test(priority = 1) 
 	public void navigateTOFitpeoHomePage() throws IOException {
 
 		AssertJUnit.assertTrue(rn.goToFitpeoHomePage());
 	}
 
-	@Test(priority = 2) // Validating you revenue calculator page is displayed.
+	// Validating you revenue calculator page is displayed.
+	@Test(priority = 2) 
 	public void navigateTORevnueCalcPage() {
 
-		AssertJUnit.assertTrue(rn.goToRevenueCalcPage());
+		assertTrue(rn.goToRevenueCalcPage());
 	}
 
-	// Scroll Down TO the slider section
+	// validating Scroll Down to a slider section method 
 	@Test(priority = 3)
 	public void valdateNavigateToSliderSection() {
 
-		AssertJUnit.assertTrue(rn.scrollDownToSliderSection());
+		assertTrue(rn.scrollDownToSliderSection());
 	}
 
-	// adjust the slider
+	// validating adjusting the slider properly
 	@Test(priority = 4)
 	public void validateAdjustTheSlider() {
 
@@ -59,28 +55,28 @@ public class RevenueCalcTest extends TestBase {
 		}
 	}
 
-	// validating the text field
+	// validating the text field values is properly updating
 	@Test(priority = 5)
 	public void validateSliderTextFiled() {
 
 		try {
-			AssertJUnit.assertTrue(rn.updateValuesInTextField(560));
+			assertTrue(rn.updateValuesInTextField(560));
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
 	
-	//Selecting CPT-Codes
+	//validating Selecting CPT-Codes is selected properly
 	@Test(priority = 6, dataProvider = "cptCodeArray")
 	public void validateSelectCPTCodes(String[] arr) {
 		for(String i : arr) {
 			System.out.println(i);
 		}
-		AssertJUnit.assertTrue(rn.selectCPTCodes(arr));
+		assertTrue(rn.selectCPTCodes(arr));
 	}
 	
-	//validating the total recurring amount
+	//validating the total recurring amount is shown on header
 	@Test(priority = 7)
 	public void validateTotalrecurringAmnt() {
 		try {
@@ -89,10 +85,10 @@ public class RevenueCalcTest extends TestBase {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		AssertJUnit.assertTrue(rn.validateTotalRecurringAmount("$110700"));
+		assertTrue(rn.validateTotalRecurringAmount("$110700"));
 	}
 	
-	
+	//providing data for choosing cpt codes
 	@DataProvider
 	public Object[][] cptCodeArray(){
 		return new Object[][]{
@@ -101,6 +97,7 @@ public class RevenueCalcTest extends TestBase {
 		
 	}
 	
+	//Closing the current window
 	@AfterSuite
 	public void teardown() {
 		driver.quit();

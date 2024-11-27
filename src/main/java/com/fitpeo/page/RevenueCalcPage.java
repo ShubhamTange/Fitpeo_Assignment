@@ -23,6 +23,7 @@ public class RevenueCalcPage extends TestBase{
 	static By inputTextField = By.cssSelector(".MuiInputBase-input");
 	static By totalRecurringAmount = By.xpath("//p[4]/p");
 	
+	//method: go to the fitpeo home page
 	public boolean goToFitpeoHomePage() {
 	
 		try {
@@ -39,6 +40,7 @@ public class RevenueCalcPage extends TestBase{
 	
 	}
 	
+	//method: go to the revenue calculator page
 	public boolean goToRevenueCalcPage() {
 		
 		driver.findElement(revenuePage).click();
@@ -53,6 +55,7 @@ public class RevenueCalcPage extends TestBase{
 	
 	}
 	
+	//method to scroll down to the slider section
 	public boolean scrollDownToSliderSection() {
 		
 		JavascriptExecutor js = (JavascriptExecutor) driver;
@@ -63,6 +66,7 @@ public class RevenueCalcPage extends TestBase{
 		
 	}
 	
+	//method to move the slider
 	public boolean moveSlider(int desiredValue) throws InterruptedException {
 		
 		waitingForElement(slider);
@@ -89,6 +93,7 @@ public class RevenueCalcPage extends TestBase{
 	}
 	
 	
+//	method: to update the values in text field
 	public boolean updateValuesInTextField(int val) throws InterruptedException {
 		
 		TestBase.clearingField(driver.findElement(inputTextField));
@@ -101,6 +106,7 @@ public class RevenueCalcPage extends TestBase{
 	
 	}
 	
+//	method: to select cpt codes given by user
 	public boolean selectCPTCodes(String[] CPTCodes) {
 		
 		/* We have to Select: CPT-99091 CPT-99453 CPT-99454 CPT-99474 
@@ -133,6 +139,7 @@ public class RevenueCalcPage extends TestBase{
 		
 	}
 	
+//	method to validate total recurring amount in header
 	public boolean validateTotalRecurringAmount(String expectedTotalRecAmt) {
 		
 		JavascriptExecutor js = (JavascriptExecutor) driver;
@@ -144,31 +151,5 @@ public class RevenueCalcPage extends TestBase{
 		System.out.println(actTotalRecAmnt);
 		return actTotalRecAmnt.equals(expTotalRecAmnt);
 	}
-	
-	public static void main(String[] args) throws IOException, InterruptedException {
 		
-		RevenueCalcPage rn = new RevenueCalcPage();
-		launchBrowser();
-		navigateToURL();
-		rn.goToRevenueCalcPage();
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-		try{
-			wait.until(ExpectedConditions.visibilityOfElementLocated(inputTextField));
-			rn.scrollDownToSliderSection();
-		}catch(Exception ex) {
-			wait.until(ExpectedConditions.visibilityOfElementLocated(inputTextField));
-			rn.scrollDownToSliderSection();
-		}
-		
-		rn.moveSlider(820);
-		rn.updateValuesInTextField(560);
-		String[] CPTCodes = {"CPT-99091","CPT-99453","CPT-99454", "CPT-99474"};
-		rn.selectCPTCodes(CPTCodes);
-		rn.moveSlider(820);
-		//rn.scrollDown(driver.findElement(By.xpath("//input[@type=\"checkbox\"]")));
-		rn.validateTotalRecurringAmount("$110700");
-	}
-	
-	
-	
 }

@@ -21,14 +21,17 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
-
+//this class contains common methods shared by all classes which we are using in general
 public class TestBase {
 	
 	public static WebDriver driver;
 	public static FileInputStream fis;
 	public static Properties props;
+	
+	//this is the filename from where we are reading the configuration like browser name and url
 	static String filename = "src/main/resources/config/config.properties";
 	
+	//method to launch a a prticular browser
 	public static void launchBrowser() throws IOException {
 		fis = new FileInputStream(filename);
 		props = new Properties();
@@ -45,6 +48,7 @@ public class TestBase {
 		}
 	}
 	
+	//method to navigate to the url
 	public static void navigateToURL() throws IOException{
 		fis = new FileInputStream(filename);
 		props = new Properties();
@@ -55,6 +59,7 @@ public class TestBase {
 		
 	}
 	
+	//method to clear the text box
 	public static void clearingField(WebElement elem) {
 		String initialVal = elem.getAttribute("value");
 		while (!initialVal.equals("")) {
@@ -63,6 +68,7 @@ public class TestBase {
 		}
 	}
 	
+	//method to wait for particular element
 	public void waitingForElement(By xpath) {
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
 		try {
@@ -73,28 +79,6 @@ public class TestBase {
 			wait.until(ExpectedConditions.visibilityOfElementLocated(xpath));
 		}
 			
-	}
-	
-	public static String captureScreenshots(String scrName) {
-
-		System.out.println("Screenshot for " + scrName);
-
-		Date date = new Date();
-		SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy HH_mm_ss");
-		String timeStamp = sdf.format(date);
-
-		TakesScreenshot scrShot = ((TakesScreenshot) driver);
-		File SrcFile = scrShot.getScreenshotAs(OutputType.FILE);
-		String scnShotFileName = "src/test/resources/output/screenshot_"+scrName+"_" + timeStamp + ".png";
-		File DestFile = new File(scnShotFileName);
-		try {
-			FileUtils.copyFile(SrcFile, DestFile);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return scnShotFileName;
-
 	}
 	
 }
