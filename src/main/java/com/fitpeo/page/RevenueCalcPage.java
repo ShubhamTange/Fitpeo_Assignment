@@ -40,8 +40,8 @@ public class RevenueCalcPage extends TestBase{
 	}
 	
 	public boolean goToRevenueCalcPage() {
+		
 		driver.findElement(revenuePage).click();
-//		boolean isRevenuePriceChartDisplayed = false;
 		waitingForElement(slider);
 		try {
 			driver.findElement(slider).isDisplayed();
@@ -54,9 +54,9 @@ public class RevenueCalcPage extends TestBase{
 	}
 	
 	public boolean scrollDownToSliderSection() {
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+		
 		JavascriptExecutor js = (JavascriptExecutor) driver;
-		wait.until(ExpectedConditions.visibilityOfElementLocated(revenuePriceChart));
+		waitingForElement(revenuePriceChart);	
 		//js.executeScript("window.scrollTo(0,300)");
 		js.executeScript("arguments[0].scrollIntoView(true);", driver.findElement(slider));
 		return driver.findElement(slider).isDisplayed();
@@ -64,10 +64,10 @@ public class RevenueCalcPage extends TestBase{
 	}
 	
 	public boolean moveSlider(int desiredValue) throws InterruptedException {
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
-		wait.until(ExpectedConditions.visibilityOfElementLocated(slider));
-		WebElement sliderElem = driver.findElement(slider);
 		
+		waitingForElement(slider);
+		WebElement sliderElem = driver.findElement(slider);
+		//used thread because of we are waiting for updating values 
 		Thread.sleep(2000);
 		int actValBeforeUpdate = Integer.parseInt(sliderElem.getAttribute("value"));
 		System.out.println("actVal: "+ actValBeforeUpdate);
@@ -81,6 +81,7 @@ public class RevenueCalcPage extends TestBase{
 		.release()
 		.perform();
 		
+		//used thread because of we are waiting for updating values 
 		Thread.sleep(2000);
 		int actValAfterUpdate = Integer.parseInt(sliderElem.getAttribute("value"));
 		
@@ -92,6 +93,7 @@ public class RevenueCalcPage extends TestBase{
 		
 		TestBase.clearingField(driver.findElement(inputTextField));
 		driver.findElement(inputTextField).sendKeys(Integer.toString(val)+ Keys.ENTER);
+		//used thread because of we are waiting for updating values 
 		Thread.sleep(2000);
 		int sliderVal = Integer.parseInt(driver.findElement(inputTextField).getAttribute("value"));
 		System.out.println(sliderVal);
@@ -100,8 +102,10 @@ public class RevenueCalcPage extends TestBase{
 	}
 	
 	public boolean selectCPTCodes(String[] CPTCodes) {
-		//We have to Select: CPT-99091 CPT-99453 CPT-99454 CPT-99474
-		//String[] CPTCodes = {"CPT-99091","CPT-99453","CPT-99454", "CPT-99474"};
+		
+		/* We have to Select: CPT-99091 CPT-99453 CPT-99454 CPT-99474 
+		we are passing this through data provider via testng class */
+		
 		int slectedRequiredCPTCodes=0;
 		int itr = 0;
 		List<WebElement> checkBoxes = driver.findElements(By.xpath("//input[@type=\"checkbox\"]"));
@@ -130,12 +134,12 @@ public class RevenueCalcPage extends TestBase{
 	}
 	
 	public boolean validateTotalRecurringAmount(String expectedTotalRecAmt) {
+		
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-		wait.until(ExpectedConditions.visibilityOfElementLocated(revenuePriceChart));
+		waitingForElement(revenuePriceChart);
 		js.executeScript("arguments[0].scrollIntoView(true);", driver.findElement(slider));
 		String expTotalRecAmnt = expectedTotalRecAmt;
-		//WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 		String actTotalRecAmnt = wait.until(ExpectedConditions.visibilityOfElementLocated(totalRecurringAmount)).getText();
 		System.out.println(actTotalRecAmnt);
 		return actTotalRecAmnt.equals(expTotalRecAmnt);

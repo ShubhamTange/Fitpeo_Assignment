@@ -2,51 +2,55 @@
 <testng-results ignored="0" total="7" passed="7" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2024-11-26T13:11:24 IST" name="Default suite" finished-at="2024-11-26T13:12:30 IST" duration-ms="66361">
+  <suite started-at="2024-11-27T11:24:30 IST" name="Suite" finished-at="2024-11-27T11:25:36 IST" duration-ms="66091">
     <groups>
     </groups>
-    <test started-at="2024-11-26T13:11:24 IST" name="Default test" finished-at="2024-11-26T13:12:30 IST" duration-ms="66361">
+    <test started-at="2024-11-27T11:24:30 IST" name="Test" finished-at="2024-11-27T11:25:36 IST" duration-ms="66091">
       <class name="com.fitpeo.testcases.RevenueCalcTest">
-        <test-method is-config="true" signature="inti()[pri:0, instance:com.fitpeo.testcases.RevenueCalcTest@5149d738]" started-at="2024-11-26T13:11:24 IST" name="inti" finished-at="2024-11-26T13:11:33 IST" duration-ms="9528" status="PASS">
+        <test-method is-config="true" signature="inti()[pri:0, instance:com.fitpeo.testcases.RevenueCalcTest@33065d67]" started-at="2024-11-27T11:24:30 IST" name="inti" finished-at="2024-11-27T11:24:37 IST" duration-ms="7293" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- inti -->
-        <test-method signature="navigateTOFitpeoHomePage()[pri:1, instance:com.fitpeo.testcases.RevenueCalcTest@5149d738]" started-at="2024-11-26T13:11:33 IST" name="navigateTOFitpeoHomePage" finished-at="2024-11-26T13:11:39 IST" duration-ms="6098" status="PASS">
+        <test-method signature="navigateTOFitpeoHomePage()[pri:1, instance:com.fitpeo.testcases.RevenueCalcTest@33065d67]" started-at="2024-11-27T11:24:37 IST" name="navigateTOFitpeoHomePage" finished-at="2024-11-27T11:24:43 IST" duration-ms="6018" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- navigateTOFitpeoHomePage -->
-        <test-method signature="navigateTORevnueCalcPage()[pri:2, instance:com.fitpeo.testcases.RevenueCalcTest@5149d738]" started-at="2024-11-26T13:11:39 IST" name="navigateTORevnueCalcPage" finished-at="2024-11-26T13:12:02 IST" duration-ms="22353" status="PASS">
+        <test-method signature="navigateTORevnueCalcPage()[pri:2, instance:com.fitpeo.testcases.RevenueCalcTest@33065d67]" started-at="2024-11-27T11:24:43 IST" name="navigateTORevnueCalcPage" finished-at="2024-11-27T11:25:07 IST" duration-ms="23258" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- navigateTORevnueCalcPage -->
-        <test-method signature="valdateNavigateToSliderSection()[pri:3, instance:com.fitpeo.testcases.RevenueCalcTest@5149d738]" started-at="2024-11-26T13:12:02 IST" name="valdateNavigateToSliderSection" finished-at="2024-11-26T13:12:03 IST" duration-ms="1224" status="PASS">
+        <test-method signature="valdateNavigateToSliderSection()[pri:3, instance:com.fitpeo.testcases.RevenueCalcTest@33065d67]" started-at="2024-11-27T11:25:07 IST" name="valdateNavigateToSliderSection" finished-at="2024-11-27T11:25:09 IST" duration-ms="2297" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- valdateNavigateToSliderSection -->
-        <test-method signature="validateAdjustTheSlider()[pri:4, instance:com.fitpeo.testcases.RevenueCalcTest@5149d738]" started-at="2024-11-26T13:12:03 IST" name="validateAdjustTheSlider" finished-at="2024-11-26T13:12:08 IST" duration-ms="5462" status="PASS">
+        <test-method signature="validateAdjustTheSlider()[pri:4, instance:com.fitpeo.testcases.RevenueCalcTest@33065d67]" started-at="2024-11-27T11:25:09 IST" name="validateAdjustTheSlider" finished-at="2024-11-27T11:25:14 IST" duration-ms="5407" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- validateAdjustTheSlider -->
-        <test-method signature="validateSliderTextFiled()[pri:5, instance:com.fitpeo.testcases.RevenueCalcTest@5149d738]" started-at="2024-11-26T13:12:08 IST" name="validateSliderTextFiled" finished-at="2024-11-26T13:12:18 IST" duration-ms="9379" status="PASS">
+        <test-method signature="validateSliderTextFiled()[pri:5, instance:com.fitpeo.testcases.RevenueCalcTest@33065d67]" started-at="2024-11-27T11:25:14 IST" name="validateSliderTextFiled" finished-at="2024-11-27T11:25:24 IST" duration-ms="9870" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- validateSliderTextFiled -->
-        <test-method signature="validateSelectCPTCodes([Ljava.lang.String;)[pri:6, instance:com.fitpeo.testcases.RevenueCalcTest@5149d738]" started-at="2024-11-26T13:12:18 IST" name="validateSelectCPTCodes" data-provider="cptCodeArray" finished-at="2024-11-26T13:12:24 IST" duration-ms="6354" status="PASS">
+        <test-method signature="validateSelectCPTCodes([Ljava.lang.String;)[pri:6, instance:com.fitpeo.testcases.RevenueCalcTest@33065d67]" started-at="2024-11-27T11:25:24 IST" name="validateSelectCPTCodes" data-provider="cptCodeArray" finished-at="2024-11-27T11:25:30 IST" duration-ms="6139" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[Ljava.lang.String;@67110f71]]>
+                <![CDATA[[Ljava.lang.String;@281ce6bb]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- validateSelectCPTCodes -->
-        <test-method signature="validateTotalrecurringAmnt()[pri:7, instance:com.fitpeo.testcases.RevenueCalcTest@5149d738]" started-at="2024-11-26T13:12:24 IST" name="validateTotalrecurringAmnt" finished-at="2024-11-26T13:12:30 IST" duration-ms="5808" status="PASS">
+        <test-method signature="validateTotalrecurringAmnt()[pri:7, instance:com.fitpeo.testcases.RevenueCalcTest@33065d67]" started-at="2024-11-27T11:25:30 IST" name="validateTotalrecurringAmnt" finished-at="2024-11-27T11:25:36 IST" duration-ms="5684" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- validateTotalrecurringAmnt -->
+        <test-method is-config="true" signature="teardown()[pri:0, instance:com.fitpeo.testcases.RevenueCalcTest@33065d67]" started-at="2024-11-27T11:25:36 IST" name="teardown" finished-at="2024-11-27T11:25:36 IST" duration-ms="202" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- teardown -->
       </class> <!-- com.fitpeo.testcases.RevenueCalcTest -->
-    </test> <!-- Default test -->
-  </suite> <!-- Default suite -->
+    </test> <!-- Test -->
+  </suite> <!-- Suite -->
 </testng-results>

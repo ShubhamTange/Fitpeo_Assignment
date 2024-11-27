@@ -1,5 +1,10 @@
 package com.fitpeo.testcases;
 
+import org.testng.annotations.Test;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterSuite;
+import org.testng.annotations.BeforeClass;
+import org.testng.AssertJUnit;
 import static org.testng.Assert.assertTrue;
 
 import java.io.IOException;
@@ -26,20 +31,20 @@ public class RevenueCalcTest extends TestBase {
 	@Test(priority = 1) // Validating you revenue calculator page is displayed.
 	public void navigateTOFitpeoHomePage() throws IOException {
 
-		assertTrue(rn.goToFitpeoHomePage());
+		AssertJUnit.assertTrue(rn.goToFitpeoHomePage());
 	}
 
 	@Test(priority = 2) // Validating you revenue calculator page is displayed.
 	public void navigateTORevnueCalcPage() {
 
-		assertTrue(rn.goToRevenueCalcPage());
+		AssertJUnit.assertTrue(rn.goToRevenueCalcPage());
 	}
 
 	// Scroll Down TO the slider section
 	@Test(priority = 3)
 	public void valdateNavigateToSliderSection() {
 
-		assertTrue(rn.scrollDownToSliderSection());
+		AssertJUnit.assertTrue(rn.scrollDownToSliderSection());
 	}
 
 	// adjust the slider
@@ -47,7 +52,7 @@ public class RevenueCalcTest extends TestBase {
 	public void validateAdjustTheSlider() {
 
 		try {
-			assertTrue(rn.moveSlider(820));
+			AssertJUnit.assertTrue(rn.moveSlider(820));
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -59,7 +64,7 @@ public class RevenueCalcTest extends TestBase {
 	public void validateSliderTextFiled() {
 
 		try {
-			assertTrue(rn.updateValuesInTextField(560));
+			AssertJUnit.assertTrue(rn.updateValuesInTextField(560));
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -72,7 +77,7 @@ public class RevenueCalcTest extends TestBase {
 		for(String i : arr) {
 			System.out.println(i);
 		}
-		assertTrue(rn.selectCPTCodes(arr));
+		AssertJUnit.assertTrue(rn.selectCPTCodes(arr));
 	}
 	
 	//validating the total recurring amount
@@ -84,7 +89,7 @@ public class RevenueCalcTest extends TestBase {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		assertTrue(rn.validateTotalRecurringAmount("$110700"));
+		AssertJUnit.assertTrue(rn.validateTotalRecurringAmount("$110700"));
 	}
 	
 	
@@ -94,6 +99,11 @@ public class RevenueCalcTest extends TestBase {
 			{new String[] {"CPT-99091","CPT-99453","CPT-99454", "CPT-99474"}}
 		};
 		
+	}
+	
+	@AfterSuite
+	public void teardown() {
+		driver.quit();
 	}
 
 }
